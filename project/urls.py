@@ -20,6 +20,8 @@ from webapp import views, urls
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('webapp/', include('webapp.urls')),
+    path('', include('webapp.urls')),
     path('admin/', admin.site.urls),
+    path('', include('django.contrib.auth.urls')),
+
 ]
