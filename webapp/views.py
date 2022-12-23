@@ -36,13 +36,23 @@ def register(request):
         register_form = RegisterForm()
     return render(request, 'sign_up.html', {'register_form': register_form})
 
+
+@login_required(login_url='/login')
 def upload(request):
     upload_form = UploadForm()
     return render(request, 'upload.html', {'upload_form': upload_form})
 
 
+@login_required(login_url='/login')
 def display_list(request):
     return render(request, 'display_list.html')
 
+
+@login_required(login_url='/login')
 def display_text(request):
     return render(request, 'display_text.html')
+
+@login_required(login_url='/login')
+def logout(request):
+    auth_logout(request)
+    return redirect('/index')
